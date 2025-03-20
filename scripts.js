@@ -94,14 +94,26 @@ const directionalLight = new THREE.DirectionalLight(0xffd700, 1);
 directionalLight.position.set(1, 1, 1).normalize();
 scene.add(directionalLight);
 
+let t;
+
+// TODO: Fix resizing. *Resizing not working when maximizing window, but this is not the only issue. (it works, it's the setting that doesn't. This was after I found a bug with next.js gsap pin in the portfolio project).
 // ----------------------------------------------------------------
 function onWindowResize() {
 
-    camera.aspect = window.innerWidth / window.innerHeight;
+    // t && clearTimeout(t);
+
+    // t = setTimeout(() => {
+
+
+    // }, 1000);
+    camera.aspect = c.innerWidth / window.innerHeight;
+
+    console.log(window.innerWidth);
 
     camera.updateProjectionMatrix();
 
     renderer.setSize(window.innerWidth, window.innerHeight);
+
 }
 
 function animate() {
